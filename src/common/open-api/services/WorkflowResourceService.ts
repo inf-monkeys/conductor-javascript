@@ -331,6 +331,8 @@ export class WorkflowResourceService {
   public getExecutionStatus(
     workflowId: string,
     includeTasks: boolean = true,
+    includeTaskInputAndOutput: boolean = true,
+    includeWorkflowInputAndOutput: boolean = true
   ): CancelablePromise<Workflow> {
     return this.httpRequest.request({
       method: 'GET',
@@ -340,6 +342,8 @@ export class WorkflowResourceService {
       },
       query: {
         'includeTasks': includeTasks,
+        'includeTaskInputAndOutput': includeTaskInputAndOutput,
+        'includeWorkflowInputAndOutput': includeWorkflowInputAndOutput
       },
     });
   }
